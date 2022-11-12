@@ -1,11 +1,21 @@
-//const taskInput = document.querySelector('.input-task-input');
-//const clearAll = document.querySelector('.clear-btn');
-const generateTask = (taskName, id_n) => {
+const taskInput = document.querySelector('.input-task-input');
+taskInput.addEventListener('keypress', (e) => {
+    if (e.key === "Enter") {
+        if (taskInput.value) {
+            console.log('ok');
+            updateTasks();
+            taskInput.value = '';
+        }
+    }
+});
 
-    return `
-    <li class="task">
-        <label for="${id_n}">
-            <input type="checkbox" id="${id_n}">
+const generateTask = (taskName) => {
+
+    const task = document.createElement('li');
+
+    task.innerHTML = `
+        <label>
+            <input type="checkbox">
             <p>${taskName}</p>
         </label>
         <div class="settings">
@@ -15,35 +25,19 @@ const generateTask = (taskName, id_n) => {
                 <li><i class="uil uil-trash"></i>Delete</li>
             </ul>
         </div>
-    </li>
     `
+    task.className = 'task';
+    return task;
 };
 
-console.log(generateTask('task1', 5));
 
-// let taskList = [...document.getElementsByClassName('task')].forEach(
-//     (e, i, a) => {
-//         console.log(
-//             e.getElementsByTagName('label')[0]
-//                 .getElementsByTagName('p')[0].textContent);
-//     }
-// );
+const updateTasks = () => {
+    const taskInput = document.querySelector('.input-task-input');
 
-const updateList = (newTask, tasksLists) => {
-    // update the list with the new task
+    if (taskInput.value) {
+        const task = generateTask(taskInput.value);
+        const taskList = document.querySelector('.task-box');
+        taskList.appendChild(task);
+        taskInput.value = '';
+    }
 };
-
-const removeTask = (task, tasksLists) => {
-    // remove the task from the list
-};
-
-const editTask = (task, tasksLists) => {
-    // edit the task
-};
-
-// const taskList = ['Buy present', 'book dentist', 'send email', 'update ...']
-
-// let newTask = 'go to supermarket';
-
-// taskList.push(newTask);
-
