@@ -8,7 +8,7 @@
     <style>@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;900&display=swap');</style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <script src="script.js"></script>
+    <script src="script.js" async></script>
     
 </head>
 <body>
@@ -24,7 +24,7 @@
     <div class="wrapper">
         <div class="task-input">
             <i class="uil-align-left"></i>
-            <input class="input-task-input" type="text" placeholder="Add new task">
+            <input class="input-task-input" id="input-task-input" type="text" placeholder="Add new task" value="">
                 
         </div>
         <div class="controls">
@@ -38,14 +38,14 @@
         <ul class="task-box">
             <li class="task">
                 <label for="1">
-                    <input type="checkbox" id="1">
-                    <p>Buy present for Hannah</p>
+                    <input type="checkbox" class="checkboxes" id="1">
+                    <p class="paragraph-edit">Buy present for Hannah</p>
                 </label>
                 <div class="settings">
                     <i class="uil uil-ellipsis-h"></i>
                     <ul class="task-menu">
-                        <li><i class="uil uil-pen"></i>Edit</li>
-                        <li><i class="uil uil-trash"></i>Delete</li>
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </li>
@@ -53,13 +53,13 @@
             <li class="task">
                 <label for="2">
                     <input type="checkbox" id="2">
-                    <p>Book dentist appointment</p>
+                    <p class="paragraph-edit">Book dentist appointment</p>
                 </label>
                 <div class="settings">
                     <i class="uil uil-ellipsis-h"></i>
                     <ul class="task-menu">
-                        <li><i class="uil uil-pen"></i>Edit</li>
-                        <li><i class="uil uil-trash"></i>Delete</li>
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </li>
@@ -67,13 +67,13 @@
             <li class="task">
                 <label for="3">
                     <input type="checkbox" id="3">
-                    <p>Send email to nursery</p>
+                    <p class="paragraph-edit">Send email to nursery</p>
                 </label>
                 <div class="settings">
                     <i class="uil uil-ellipsis-h"></i>
                     <ul class="task-menu">
-                        <li><i class="uil uil-pen"></i>Edit</li>
-                        <li><i class="uil uil-trash"></i>Delete</li>
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </li>
@@ -81,13 +81,13 @@
             <li class="task">
                 <label for="4">
                     <input type="checkbox" id="4">
-                    <p>Update address on driving license</p>
+                    <p class="paragraph-edit">Update address on driving license</p>
                 </label>
                 <div class="settings">
                     <i class="uil uil-ellipsis-h"></i>
                     <ul class="task-menu">
-                        <li><i class="uil uil-pen"></i>Edit</li>
-                        <li><i class="uil uil-trash"></i>Delete</li>
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </li>
@@ -95,13 +95,13 @@
             <li class="task">
                 <label for="5">
                     <input type="checkbox" id="5">
-                    <p>Cancel gym membership</p>
+                    <p class="paragraph-edit">Cancel gym membership</p>
                 </label>
                 <div class="settings">
                     <i class="uil uil-ellipsis-h"></i>
                     <ul class="task-menu">
-                        <li><i class="uil uil-pen"></i>Edit</li>
-                        <li><i class="uil uil-trash"></i>Delete</li>
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </li>
