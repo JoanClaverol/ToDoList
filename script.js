@@ -72,3 +72,4 @@ const updateTasks = () => {
         taskInput.value = '';
     }
 };
+
