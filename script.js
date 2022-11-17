@@ -17,14 +17,15 @@ function deletTaskEvent (){
     } )
 };
 // editing tasks
-const editTask = (edit, el) => {
+const editTask = (edit) => {
     console.log("edit task click working");
     const parentElement = edit.target.parentNode.parentNode.parentNode;
-    const valueInput = parentElement.querySelector('p').innerHTML;
+    const valueInput = parentElement.querySelector('p').innerText;
+    console.log(valueInput);
     parentElement.innerHTML = `
         <label>
             <input type="checkbox">
-            <input id="newInputValue" type='text' value= ${valueInput}>
+            <input id="newInputValue" type='text' value='${valueInput}'>
         </label>
         <div class="settings">
             <i class="uil uil-ellipsis-h"></i>
@@ -35,7 +36,7 @@ const editTask = (edit, el) => {
         </div>
     `;
     parentElement.addEventListener('keypress', (edit) => {
-        let newValue = parentElement.querySelector('#newInputValue').value;
+        const newValue = parentElement.querySelector('#newInputValue').value;
             if (edit.key === 'Enter') {
                 parentElement.innerHTML = `
                 <label>
