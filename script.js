@@ -4,19 +4,19 @@ const paragraphEdit = document.querySelectorAll(".paragraph-edit");
 const taskInput = document.querySelector('.input-task-input');
 
 
-// removing tasks form the list with delete button
+// REMOVING TASK FROM THE LIST WITH THE DELETE BUTTON
 const removeTask = (el) => {
     el.target.parentNode.parentNode.parentNode.remove();
 };
-function deletTaskEvent (){
+function deletTaskEvent() {
     const deleteTask = document.querySelectorAll(".delete-li");
     deleteTask.forEach(deleteButton => {
         deleteButton.addEventListener("click", (el) => {
             removeTask(el);
         })
-    } )
+    })
 };
-// editing tasks
+// EDITING TASK
 const editTask = (edit) => {
     console.log("edit task click working");
     const parentElement = edit.target.parentNode.parentNode.parentNode;
@@ -36,9 +36,9 @@ const editTask = (edit) => {
         </div>
     `;
     parentElement.addEventListener('keypress', (edit) => {
-            if (edit.key === 'Enter') {
-                const newValue = parentElement.querySelector('#newInputValue').value;
-                parentElement.innerHTML = `
+        const newValue = parentElement.querySelector('#newInputValue').value;
+        if (edit.key === 'Enter') {
+            parentElement.innerHTML = `
                 <label>
                     <input type="checkbox">
                     <p>${newValue}</p>
@@ -50,12 +50,11 @@ const editTask = (edit) => {
                         <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>`;
-            }
-            deletTaskEvent ();
-            editTaskEvent ();
-        })
-
-    };
+        }
+        deletTaskEvent();
+        editTaskEvent();
+    })
+};
 function editTaskEvent() {
     const editTaskButton = document.querySelectorAll(".edit-li");
     editTaskButton.forEach(editButton => {
@@ -87,6 +86,7 @@ const generateTask = (taskName) => {
         <label>
             <input type="checkbox">
             <p>${taskName}</p>
+            <div id="status" style="display: none;">Pending</div>
         </label>
         <div class="settings">
             <i class="uil uil-ellipsis-h"></i>
