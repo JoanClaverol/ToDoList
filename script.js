@@ -163,10 +163,10 @@ function selectingTheList() {
 // ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
 function clearAllTasksButton() {
     const buttonClearPending = document.querySelector('.clear-pending');
-    const pendingList = document.querySelector('.pending').querySelectorAll('.task');
     const buttonClearCompleted = document.querySelector('.clear-completed');
 
     buttonClearPending.addEventListener('click', () => {
+        const pendingList = document.querySelector('.pending').querySelectorAll('.task');
         pendingList.forEach(task => {
             task.remove();
         })
