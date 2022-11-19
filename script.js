@@ -8,13 +8,13 @@ const taskInput = document.querySelector('.input-task-input');
 const removeTask = (el) => {
     el.target.parentNode.parentNode.parentNode.remove();
 };
-function deletTaskEvent (){
+function deletTaskEvent() {
     const deleteTask = document.querySelectorAll(".delete-li");
     deleteTask.forEach(deleteButton => {
         deleteButton.addEventListener("click", (el) => {
             removeTask(el);
         })
-    } )
+    })
 };
 // editing tasks
 const editTask = (edit) => {
@@ -37,8 +37,8 @@ const editTask = (edit) => {
     `;
     parentElement.addEventListener('keypress', (edit) => {
         const newValue = parentElement.querySelector('#newInputValue').value;
-            if (edit.key === 'Enter') {
-                parentElement.innerHTML = `
+        if (edit.key === 'Enter') {
+            parentElement.innerHTML = `
                 <label>
                     <input type="checkbox">
                     <p>${newValue}</p>
@@ -50,12 +50,12 @@ const editTask = (edit) => {
                         <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>`;
-            }
-            deletTaskEvent ();
-            editTaskEvent ();
-        })
+        }
+        deletTaskEvent();
+        editTaskEvent();
+    })
 
-    };
+};
 function editTaskEvent() {
     const editTaskButton = document.querySelectorAll(".edit-li");
     editTaskButton.forEach(editButton => {
@@ -69,16 +69,16 @@ function editTaskEvent() {
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === "Enter") {
         if (taskInput.value) {
-                console.log('ok');
-                updateTasks();
-                taskInput.value = '';
-                // DELETE FUNCTION LISTENER
-                deletTaskEvent();
-                // EDIT FUNCTION LISTENER
-                editTaskEvent();
-            }
+            console.log('ok');
+            updateTasks();
+            taskInput.value = '';
+            // DELETE FUNCTION LISTENER
+            deletTaskEvent();
+            // EDIT FUNCTION LISTENER
+            editTaskEvent();
         }
     }
+}
 );
 
 const generateTask = (taskName) => {
@@ -88,6 +88,7 @@ const generateTask = (taskName) => {
         <label>
             <input type="checkbox">
             <p>${taskName}</p>
+            <div id="status" style="display: none;">Pending</div>
         </label>
         <div class="settings">
             <i class="uil uil-ellipsis-h"></i>
