@@ -33,13 +33,22 @@
         </div>
         <div class="controls">
             <div class="filters">
-                <span id="all active">All</span>
+                <span id="all-active">All</span>
                 <span id="pending">Pending</span>
                 <span id="completed">Completed</span>
             </div>
-            <button class="clear-btn">Clear all</button>
+            <button class="clear-btn clear-pending">Clear pending</button>
         </div>
-        <ul class="task-box">
+        <ul class="task-box pending">
+            <p>Pending</p>
+            
+        </ul>
+        <hr>
+        <div class="controls">
+            <button class="clear-btn clear-completed">Clear completed</button>
+        </div>
+        <ul class="task-box completed">
+            <p>Completed</p>
             
         </ul>
     </div>
