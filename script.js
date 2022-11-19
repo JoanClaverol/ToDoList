@@ -8,15 +8,15 @@ const taskInput = document.querySelector('.input-task-input');
 const removeTask = (el) => {
     el.target.parentNode.parentNode.parentNode.remove();
 };
-function addingEventListenerToDeleteButton(){
-    
+function addingEventListenerToDeleteButton() {
+
 }
 
 // editing tasks
 const editTask = (e) => {
     console.log("edit task click working");
     const parentElement = e.target.parentNode.parentNode.parentNode;
-     console.log(parentElement.querySelector("p"));
+    console.log(parentElement.querySelector("p"));
 };
 
 
@@ -27,12 +27,23 @@ taskInput.addEventListener('keypress', (e) => {
             updateTasks();
             taskInput.value = '';
             const deleteTask = document.querySelectorAll(".delete-li");
+            let statusTasks = document.querySelectorAll("input[type=checkbox]");
             for (let index = 0; index < deleteTask.length; index++) {
                 const element = deleteTask[index];
                 element.addEventListener("click", (el) => {
-                removeTask(el);
-        })
-    }
+                    removeTask(el);
+                })
+            }
+            statusTasks.forEach((statusTask) => {
+                console.log(statusTask);
+                statusTask.addEventListener("click", (e) => {
+                    if (e.target.checked) {
+                        e.target.parentNode.querySelector("#status").innerText = "Completed";
+                    } else {
+                        e.target.parentNode.querySelector("#status").innerText = "Pending";
+                    }
+                })
+            })
         }
     }
 });
@@ -44,6 +55,7 @@ const generateTask = (taskName) => {
         <label>
             <input type="checkbox">
             <p>${taskName}</p>
+            <div id="status" style="display: none;">Pending</div>
         </label>
         <div class="settings">
             <i class="uil uil-ellipsis-h"></i>
