@@ -36,8 +36,8 @@ const editTask = (edit) => {
         </div>
     `;
     parentElement.addEventListener('keypress', (edit) => {
-        const newValue = parentElement.querySelector('#newInputValue').value;
             if (edit.key === 'Enter') {
+                const newValue = parentElement.querySelector('#newInputValue').value;
                 parentElement.innerHTML = `
                 <label>
                     <input type="checkbox">
@@ -69,7 +69,6 @@ function editTaskEvent() {
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === "Enter") {
         if (taskInput.value) {
-                console.log('ok');
                 updateTasks();
                 taskInput.value = '';
                 // DELETE FUNCTION LISTENER
@@ -103,13 +102,10 @@ const generateTask = (taskName) => {
 
 
 const updateTasks = () => {
-    const taskInput = document.querySelector('.input-task-input');
 
-    if (taskInput.value) {
-        const task = generateTask(taskInput.value);
-        const taskList = document.querySelector('.task-box');
-        taskList.appendChild(task);
-        taskInput.value = '';
-    }
+    const task = generateTask(taskInput.value);
+    const taskList = document.querySelector('.task-box');
+    taskList.appendChild(task);
+
 };
 
