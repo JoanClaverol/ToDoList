@@ -1,22 +1,68 @@
-const editTaskButton = document.querySelectorAll(".edit-li");
 const checkBoxDone = document.querySelectorAll(".checkboxes");
 const taskLi = document.querySelectorAll(".task");
 const paragraphEdit = document.querySelectorAll(".paragraph-edit");
 const taskInput = document.querySelector('.input-task-input');
 
+
 // removing tasks form the list with delete button
 const removeTask = (el) => {
     el.target.parentNode.parentNode.parentNode.remove();
 };
-function addingEventListenerToDeleteButton() {
-
-}
-
+function deletTaskEvent() {
+    const deleteTask = document.querySelectorAll(".delete-li");
+    deleteTask.forEach(deleteButton => {
+        deleteButton.addEventListener("click", (el) => {
+            removeTask(el);
+        })
+    })
+};
 // editing tasks
-const editTask = (e) => {
+const editTask = (edit) => {
     console.log("edit task click working");
-    const parentElement = e.target.parentNode.parentNode.parentNode;
-    console.log(parentElement.querySelector("p"));
+    const parentElement = edit.target.parentNode.parentNode.parentNode;
+    const valueInput = parentElement.querySelector('p').innerText;
+    console.log(valueInput);
+    parentElement.innerHTML = `
+        <label>
+            <input type="checkbox">
+            <input id="newInputValue" type='text' value='${valueInput}'>
+        </label>
+        <div class="settings">
+            <i class="uil uil-ellipsis-h"></i>
+            <ul class="task-menu">
+                <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
+            </ul>
+        </div>
+    `;
+    parentElement.addEventListener('keypress', (edit) => {
+        const newValue = parentElement.querySelector('#newInputValue').value;
+        if (edit.key === 'Enter') {
+            parentElement.innerHTML = `
+                <label>
+                    <input type="checkbox">
+                    <p>${newValue}</p>
+                </label>
+                <div class="settings">
+                    <i class="uil uil-ellipsis-h"></i>
+                    <ul class="task-menu">
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
+                    </ul>
+                </div>`;
+        }
+        deletTaskEvent();
+        editTaskEvent();
+    })
+
+};
+function editTaskEvent() {
+    const editTaskButton = document.querySelectorAll(".edit-li");
+    editTaskButton.forEach(editButton => {
+        editButton.addEventListener("click", (edit) => {
+            editTask(edit);
+        })
+    });
 };
 
 
@@ -26,27 +72,14 @@ taskInput.addEventListener('keypress', (e) => {
             console.log('ok');
             updateTasks();
             taskInput.value = '';
-            const deleteTask = document.querySelectorAll(".delete-li");
-            let statusTasks = document.querySelectorAll("input[type=checkbox]");
-            for (let index = 0; index < deleteTask.length; index++) {
-                const element = deleteTask[index];
-                element.addEventListener("click", (el) => {
-                    removeTask(el);
-                })
-            }
-            statusTasks.forEach((statusTask) => {
-                console.log(statusTask);
-                statusTask.addEventListener("click", (e) => {
-                    if (e.target.checked) {
-                        e.target.parentNode.querySelector("#status").innerText = "Completed";
-                    } else {
-                        e.target.parentNode.querySelector("#status").innerText = "Pending";
-                    }
-                })
-            })
+            // DELETE FUNCTION LISTENER
+            deletTaskEvent();
+            // EDIT FUNCTION LISTENER
+            editTaskEvent();
         }
     }
-});
+}
+);
 
 const generateTask = (taskName) => {
     const task = document.createElement('li');
@@ -60,7 +93,7 @@ const generateTask = (taskName) => {
         <div class="settings">
             <i class="uil uil-ellipsis-h"></i>
             <ul class="task-menu">
-                <li class=""><i class="uil uil-pen"></i>Edit</li>
+                <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
                 <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
             </ul>
         </div>
