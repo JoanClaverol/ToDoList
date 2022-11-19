@@ -1,120 +1,115 @@
+const checkBoxDone = document.querySelectorAll(".checkboxes");
+const taskLi = document.querySelectorAll(".task");
+const paragraphEdit = document.querySelectorAll(".paragraph-edit");
+const taskInput = document.querySelector('.input-task-input');
 
-let tasksList = [
-    'Buy present for Hannah',
-    'Book dentist appointment',
-    'Send email to nursery',
-    'Update address on driving license',
-    'Cancel gym membership'
-]
 
-const updateList = (newTask) => {
-    // update the list with the new task
-    tasksList.push(newTask);
+// removing tasks form the list with delete button
+const removeTask = (el) => {
+    el.target.parentNode.parentNode.parentNode.remove();
 };
-
-const removeTask = (task) => {
-    // remove the task from the list
-    const targetIndex = tasksList.indexOf(task);
-    tasksList.splice(targetIndex, 1);
+function deletTaskEvent (){
+    const deleteTask = document.querySelectorAll(".delete-li");
+    deleteTask.forEach(deleteButton => {
+        deleteButton.addEventListener("click", (el) => {
+            removeTask(el);
+        })
+    } )
 };
-
-const editTask = (task, newTask) => {
-    // edit the task
-    const targetIndex = tasksList.indexOf(task);
-    tasksList[targetIndex] = newTask;
-};
-
-
-
-
-
-const taskInput = document.querySelector(".task-input input"),
-     filters = document.querySelectorAll(".filters span"),
-     clearAll = document.querySelector(".clear-btn"),
-     taskBox = document.querySelector(".task-box");
-
-let editId,
-isEditTask = false,
-todos = JSON.parse(localStorage.getItem("todo-list"));
-
-filters.forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelector("span.active").classList.remove("active");
-        btn.classList.add("active");
-        showTodo(btn.id);
-    });
-});
-
-
-
-function showTodo(filter) {
-    let liTag = "";
-    if(todos) {
-        todos.forEach((todo, id) => {
-            let completed = todo.status == "completed" ? "checked" : "";
-            if(filter == todo.status || filter == "all") {
-                liTag += `<li class="task">
-                            <label for="${id}">
-                                <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
-                                <p class="${completed}">${todo.name}</p>
-                            </label>
-                            <div class="settings">
-                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                                <ul class="task-menu">
-                                    <li onclick='editTask(${id}, "${todo.name}")'><i class="uil uil-pen"></i>Edit</li>
-                                    <li onclick='deleteTask(${id}, "${filter}")'><i class="uil uil-trash"></i>Delete</li>
-                                </ul>
-                            </div>
-                        </li>`;
+// editing tasks
+const editTask = (edit) => {
+    console.log("edit task click working");
+    const parentElement = edit.target.parentNode.parentNode.parentNode;
+    const valueInput = parentElement.querySelector('p').innerText;
+    console.log(valueInput);
+    parentElement.innerHTML = `
+        <label>
+            <input type="checkbox">
+            <input id="newInputValue" type='text' value='${valueInput}'>
+        </label>
+        <div class="settings">
+            <i class="uil uil-ellipsis-h"></i>
+            <ul class="task-menu">
+                <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
+            </ul>
+        </div>
+    `;
+    parentElement.addEventListener('keypress', (edit) => {
+        const newValue = parentElement.querySelector('#newInputValue').value;
+            if (edit.key === 'Enter') {
+                parentElement.innerHTML = `
+                <label>
+                    <input type="checkbox">
+                    <p>${newValue}</p>
+                </label>
+                <div class="settings">
+                    <i class="uil uil-ellipsis-h"></i>
+                    <ul class="task-menu">
+                        <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                        <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
+                    </ul>
+                </div>`;
             }
-        });
-    }
-    taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
-    let checkTask = taskBox.querySelectorAll(".task");
-    !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
-    taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
-}
-showTodo("all");
+            deletTaskEvent ();
+            editTaskEvent ();
+        })
 
-
-function showMenu(selectedTask) {
-    let menuDiv = selectedTask.parentElement.lastElementChild;
-    menuDiv.classList.add("show");
-    document.addEventListener("click", e => {
-        if(e.target.tagName != "I" || e.target != selectedTask) {
-            menuDiv.classList.remove("show");
-        }
+    };
+function editTaskEvent() {
+    const editTaskButton = document.querySelectorAll(".edit-li");
+    editTaskButton.forEach(editButton => {
+        editButton.addEventListener("click", (edit) => {
+            editTask(edit);
+        })
     });
-}
+};
 
 
-
-function deleteTask(deleteId, filter) {
-    isEditTask = false;
-    todos.splice(deleteId, 1);
-    localStorage.setItem("todo-list", JSON.stringify(todos));
-    showTodo(filter);
-}
-
-
-clearAll.addEventListener("click", () => {
-    isEditTask = false;
-    todos.splice(0, todos.length);
-    localStorage.setItem("todo-list", JSON.stringify(todos));
-    showTodo()
-});
-
-
-taskInput.addEventListener("keyup", e => {
-    let userTask = taskInput.value.trim();
-    if(e.key == "Enter" && userTask) {
-        if(!isEditTask) {
-            todos = !todos ? [] : todos;
-            let taskInfo = {name: userTask, status: "pending"};
-            todos.push(taskInfo);
-        } else {
-            isEditTask = false;
-            todos[editId].name = userTask;
+taskInput.addEventListener('keypress', (e) => {
+    if (e.key === "Enter") {
+        if (taskInput.value) {
+                console.log('ok');
+                updateTasks();
+                taskInput.value = '';
+                // DELETE FUNCTION LISTENER
+                deletTaskEvent();
+                // EDIT FUNCTION LISTENER
+                editTaskEvent();
+            }
         }
     }
-});
+);
+
+const generateTask = (taskName) => {
+    const task = document.createElement('li');
+
+    task.innerHTML = `
+        <label>
+            <input type="checkbox">
+            <p>${taskName}</p>
+        </label>
+        <div class="settings">
+            <i class="uil uil-ellipsis-h"></i>
+            <ul class="task-menu">
+                <li class="edit-li"><i class="uil uil-pen"></i>Edit</li>
+                <li class="delete-li"><i class="uil uil-trash"></i>Delete</li>
+            </ul>
+        </div>
+    `;
+    task.className = 'task';
+    return task;
+};
+
+
+const updateTasks = () => {
+    const taskInput = document.querySelector('.input-task-input');
+
+    if (taskInput.value) {
+        const task = generateTask(taskInput.value);
+        const taskList = document.querySelector('.task-box');
+        taskList.appendChild(task);
+        taskInput.value = '';
+    }
+};
+
