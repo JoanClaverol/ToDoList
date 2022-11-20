@@ -225,7 +225,6 @@
     }
 
     footer {	
-        padding-left: 100px;
         padding-bottom: 40px;
         padding-top: 40px;
         background: rgba(19 64 68 / 20%);
@@ -239,8 +238,7 @@
     }
     
     .footer-content{
-        display: inline-block;
-        margin-right: 200px;
+        display:block;
         vertical-align: top;
         color: white;
     
