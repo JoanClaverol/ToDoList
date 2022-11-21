@@ -143,7 +143,7 @@ function selectingTheList() {
     const pendingButton = document.querySelector('#pending');
     const completedList = document.querySelector('.completed');
     const completedButton = document.querySelector('#completed');
-    const allButton = document.querySelector('#all-active');
+    const allButton = document.querySelector('#all'); //Replaced "#all-active" by "#all" on the html
 
     pendingButton.addEventListener('click', () => {
         completedList.style.display = 'none';
@@ -164,7 +164,7 @@ function selectingTheList() {
 // ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
 function clearAllTasksButton() {
     const buttonClearPending = document.querySelector('.clear-pending');
-    const buttonClearCompleted = document.querySelector('.clear-completed');
+    const buttonClearCompleted = document.querySelector('.clear-completed'); //doesn't exist anymore
 
     buttonClearPending.addEventListener('click', () => {
         const pendingList = document.querySelector('.pending').querySelectorAll('.task');
@@ -180,3 +180,34 @@ function clearAllTasksButton() {
     });
 }
 // ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
+
+
+//SELECTED STYLE FOR ACTIVE TABS
+function activeTab() {
+
+    const tabButton = document.querySelectorAll('.filters span');
+    
+    function siblings(elem) {
+        const nodes = [...elem.parentNode.children];
+        return nodes.filter(node => node !== elem)
+    }
+
+    tabButton.forEach(el => {
+        el.addEventListener('click', function() {
+            this.classList.add('active');
+            siblings(this).forEach(node => {
+                node.classList.remove('active')
+            })  
+        })
+    })
+    
+}
+
+activeTab();
+
+
+
+
+
+
+ 
