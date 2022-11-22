@@ -2,8 +2,6 @@ const taskLi = document.querySelectorAll(".task");
 const paragraphEdit = document.querySelectorAll(".paragraph-edit");
 const taskInput = document.querySelector('.input-task-input');
 
-
-
 // FUNCTIONS TO DELETE THE TASKS START
 const removeTask = (el) => {
     el.target.parentNode.parentNode.parentNode.remove();
@@ -141,78 +139,31 @@ function movingCompletedTaskToCompletedUl(){
 //ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS START
 function selectingTheList() {
     const pendingList = document.querySelector('.pending');
-    const pendingButton = document.querySelector('#pending');
+    const pendingFilter = document.querySelector('#pending');
     const completedList = document.querySelector('.completed');
-    const completedButton = document.querySelector('#completed');
-    const allButton = document.querySelector('#all'); //Replaced "#all-active" by "#all" on the html
+    const completedFilter = document.querySelector('#completed');
+    const allFilter = document.querySelector('#all'); 
+    const buttonClearTasks = document.querySelector('.clear-tasks');
 
-    pendingButton.addEventListener('click', () => {
+    pendingFilter.addEventListener('click', () => {
         completedList.style.display = 'none';
         pendingList.style.display = 'block';
-        //const buttonClearTasks = document.querySelector('.clear-tasks');
-        buttonClearTasks.addEventListener('click', () => {
-            //const buttonClearTasks = document.querySelector('.clear-tasks');
-            const pendingList = document.querySelector('.pending').querySelectorAll('.task');
-            pendingList.forEach(task => {
-                task.remove();
-            })
-        });
     });
 
-    completedButton.addEventListener('click', () => {
+    completedFilter.addEventListener('click', () => {
+        console.log('Filter completed works');
         pendingList.style.display = 'none';
         completedList.style.display = 'block';
-        //const buttonClearTasks = document.querySelector('.clear-tasks');
-        buttonClearTasks.addEventListener('click', () => {
-            //const buttonClearTasks = document.querySelector('.clear-tasks');
-            const completedList = document.querySelector('.completed').querySelectorAll('.task');
-            completedList.forEach(task => {
-                task.remove();
-            })
-        });
     });
 
-    allButton.addEventListener('click', () => {
+    allFilter.addEventListener('click', () => {
+        console.log('Filter all works');
         completedList.style.display = 'block';
-        console.log('buttonworks');
         pendingList.style.display = 'block';
-        //const buttonClearTasks = document.querySelector('.clear-tasks');
-        buttonClearTasks.addEventListener('click', () => {
-            //const buttonClearTasks = document.querySelector('.clear-tasks');
-            console.log('clearbuttonlistenerworks');
-            const completedList = document.querySelector('.completed').querySelectorAll('.task');
-            completedList.forEach(task => {
-                console.log('completedList.forEachLoop');
-                task.remove();
-            })
-            const pendingList = document.querySelector('.pending').querySelectorAll('.task');
-            pendingList.forEach(task => {
-                console.log('pendingList.forEachLoop');
-                task.remove();
-            })
-        });
     });
-}
+};
 
 // ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS END
-
-// ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
-//function clearAllTasksButton() {
-//     const buttonClearTasks = document.querySelector('.clear-tasks');
-//     const buttonClearCompleted = document.querySelector('.clear-completed'); //doesn't exist anymore
-
-//     buttonClearTasks.addEventListener('click', (e) => {
-//        const buttonClearTasks = document.querySelector('.clear-tasks');
-//         if(e)
-//        const pendingList = document.querySelector('.pending').querySelectorAll('.task');
-//         pendingList.forEach(task => {
-//             task.remove();
-//         })
-//     });
-// }
-
-// ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
-
 
 //SELECTED STYLE FOR ACTIVE TABS - start
 function activeTab() {
@@ -233,7 +184,6 @@ function activeTab() {
             })  
         })
     })
-    
 }
 
 activeTab();
@@ -245,15 +195,11 @@ function deleteTasks(){
     const all = document.querySelector('#all');
     const pending = document.querySelector('#pending');
     const completed = document.querySelector('#completed');
-    //const pendingList = document.querySelector('.pending')
-    //const completedList = document.querySelector('.completed')
 
     deleteButton.addEventListener('click', function() {
 
         if (all.classList.contains("active")) {
             const allTasks = document.querySelectorAll('.task');
-            //completedList.style.display = 'block';
-            //pendingList.style.display = 'block';
             allTasks.forEach(task => {
                 task.remove();
             })
@@ -261,8 +207,6 @@ function deleteTasks(){
 
         if (pending.classList.contains("active")) {
             const pendingTasks = document.querySelector('.pending').querySelectorAll('.task');
-            //completedList.style.display = 'none';
-            //pendingList.style.display = 'block';
             pendingTasks.forEach(task => {
                 task.remove();
             })
@@ -270,8 +214,6 @@ function deleteTasks(){
 
         if (completed.classList.contains("active")) {
             const completedTasks = document.querySelector('.completed').querySelectorAll('.task');
-            //completedList.style.display = 'block';
-            //pendingList.style.display = 'none';
             completedTasks.forEach(task => {
                 task.remove();
             })
