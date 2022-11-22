@@ -83,7 +83,7 @@ taskInput.addEventListener('keypress', (e) => {
                 // LISTS
                 selectingTheList();
                 // CLEAR BUTTONS
-                clearAllTasksButton();
+                clearAllTasksFromTheList();
             }
         }
     }
@@ -162,7 +162,7 @@ function selectingTheList() {
 // ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS END
 
 // ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
-function clearAllTasksButton() {
+function clearAllTasksFromTheList() {
     const buttonClearPending = document.querySelector('.clear-pending');
     const buttonClearCompleted = document.querySelector('.clear-completed');
 
