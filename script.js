@@ -84,7 +84,7 @@ taskInput.addEventListener('keypress', (e) => {
                 // LISTS
                 selectingTheList();
                 // CLEAR BUTTONS
-                clearAllTasksButton();
+                //clearAllTasksButton();
             }
         }
     }
@@ -138,7 +138,7 @@ function movingCompletedTaskToCompletedUl(){
 }
 // FUNCTION TO CHECK THE TASK AS DONE END
 
-// ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS START
+//ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS START
 function selectingTheList() {
     const pendingList = document.querySelector('.pending');
     const pendingButton = document.querySelector('#pending');
@@ -149,7 +149,7 @@ function selectingTheList() {
     pendingButton.addEventListener('click', () => {
         completedList.style.display = 'none';
         pendingList.style.display = 'block';
-        const buttonClearTasks = document.querySelector('.clear-tasks');
+        //const buttonClearTasks = document.querySelector('.clear-tasks');
         buttonClearTasks.addEventListener('click', () => {
             //const buttonClearTasks = document.querySelector('.clear-tasks');
             const pendingList = document.querySelector('.pending').querySelectorAll('.task');
@@ -162,7 +162,7 @@ function selectingTheList() {
     completedButton.addEventListener('click', () => {
         pendingList.style.display = 'none';
         completedList.style.display = 'block';
-        const buttonClearTasks = document.querySelector('.clear-tasks');
+        //const buttonClearTasks = document.querySelector('.clear-tasks');
         buttonClearTasks.addEventListener('click', () => {
             //const buttonClearTasks = document.querySelector('.clear-tasks');
             const completedList = document.querySelector('.completed').querySelectorAll('.task');
@@ -176,7 +176,7 @@ function selectingTheList() {
         completedList.style.display = 'block';
         console.log('buttonworks');
         pendingList.style.display = 'block';
-        const buttonClearTasks = document.querySelector('.clear-tasks');
+        //const buttonClearTasks = document.querySelector('.clear-tasks');
         buttonClearTasks.addEventListener('click', () => {
             //const buttonClearTasks = document.querySelector('.clear-tasks');
             console.log('clearbuttonlistenerworks');
@@ -193,27 +193,28 @@ function selectingTheList() {
         });
     });
 }
+
 // ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS END
 
 // ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
 //function clearAllTasksButton() {
-    //const buttonClearTasks = document.querySelector('.clear-tasks');
-    //const buttonClearCompleted = document.querySelector('.clear-completed'); //doesn't exist anymore
+//     const buttonClearTasks = document.querySelector('.clear-tasks');
+//     const buttonClearCompleted = document.querySelector('.clear-completed'); //doesn't exist anymore
 
-    //buttonClearTasks.addEventListener('click', (e) => {
-       // const buttonClearTasks = document.querySelector('.clear-tasks');
-        //if(e)
-       //const pendingList = document.querySelector('.pending').querySelectorAll('.task');
-        //pendingList.forEach(task => {
-        //    task.remove();
-       // })
-   // });
-//}
+//     buttonClearTasks.addEventListener('click', (e) => {
+//        const buttonClearTasks = document.querySelector('.clear-tasks');
+//         if(e)
+//        const pendingList = document.querySelector('.pending').querySelectorAll('.task');
+//         pendingList.forEach(task => {
+//             task.remove();
+//         })
+//     });
+// }
 
 // ADDING FUNCTIONALITY TO CLEAR ALL BUTTON START
 
 
-//SELECTED STYLE FOR ACTIVE TABS
+//SELECTED STYLE FOR ACTIVE TABS - start
 function activeTab() {
 
     const tabButton = document.querySelectorAll('.filters span');
@@ -228,6 +229,7 @@ function activeTab() {
             this.classList.add('active');
             siblings(this).forEach(node => {
                 node.classList.remove('active')
+            
             })  
         })
     })
@@ -235,10 +237,48 @@ function activeTab() {
 }
 
 activeTab();
+//SELECTED STYLE FOR ACTIVE TABS - finish
 
+//CLEAR BUTTON FUNCTION - start
+function deleteTasks(){
+    const deleteButton = document.querySelector('.clear-btn');
+    const all = document.querySelector('#all');
+    const pending = document.querySelector('#pending');
+    const completed = document.querySelector('#completed');
+    //const pendingList = document.querySelector('.pending')
+    //const completedList = document.querySelector('.completed')
 
+    deleteButton.addEventListener('click', function() {
 
+        if (all.classList.contains("active")) {
+            const allTasks = document.querySelectorAll('.task');
+            //completedList.style.display = 'block';
+            //pendingList.style.display = 'block';
+            allTasks.forEach(task => {
+                task.remove();
+            })
+        }
 
+        if (pending.classList.contains("active")) {
+            const pendingTasks = document.querySelector('.pending').querySelectorAll('.task');
+            //completedList.style.display = 'none';
+            //pendingList.style.display = 'block';
+            pendingTasks.forEach(task => {
+                task.remove();
+            })
+        }
 
+        if (completed.classList.contains("active")) {
+            const completedTasks = document.querySelector('.completed').querySelectorAll('.task');
+            //completedList.style.display = 'block';
+            //pendingList.style.display = 'none';
+            completedTasks.forEach(task => {
+                task.remove();
+            })
 
- 
+        }
+    });
+}
+
+deleteTasks();
+//CLEAR BUTTON FUNCTION - finish
