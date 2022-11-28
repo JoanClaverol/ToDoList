@@ -9,7 +9,7 @@ const button = document.getElementById('button')
 console.log(button);
 
 button.addEventListener('click', (e) => {
-   // e.preventDefault()
+   e.preventDefault()
     const userEmail = document.getElementById('email').value
     const password = document.getElementById('pass').value
     console.log(userEmail);
@@ -22,7 +22,7 @@ button.addEventListener('click', (e) => {
     console.log(user);
 });
 
-// function myFunction(){
+//  function myFunction(){
 // getElementById("email").required; 
 // document.getElementById().innerHTML = x;
 // }
