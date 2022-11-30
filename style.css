@@ -9,7 +9,7 @@
    *,
    *:before,
    *:after {
-       box-sizing: inherit;
+       box-sizing: border-box;
    }
 
    .modal {
@@ -47,10 +47,6 @@
        border-radius: 10px;
    }
 
-   */ html {
-       box-sizing: border-box;
-       height: 100%;
-   }
 
    label {
        cursor: pointer;
@@ -102,6 +98,7 @@
 
    .wrapper {
        max-width: 405px;
+       min-height: 275px; /* Min-height to fix footer to the bottom */
        margin: 135px auto;
        background: #fff;
        border-radius: 7px;
