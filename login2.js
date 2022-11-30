@@ -1,6 +1,6 @@
 
-document.querySelector('#button').addEventListener('click', (e) => { window.location.href = 'index.html';
-});
+// document.querySelector('#button').addEventListener('click', (e) => { window.location.href = 'index.html';
+// });
 
 
 
