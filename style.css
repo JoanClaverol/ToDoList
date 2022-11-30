@@ -177,10 +177,8 @@
         border-bottom: 1px solid #ccc;
     }
 
-    .task-box .task:last-child{
-        margin-bottom: 0;
-        border-bottom: 0;
-        padding-bottom: 0;
+    .task-box.pending .task:last-child{
+        border-bottom: 1px solid #ccc;
     }
 
     .task label{
@@ -350,6 +348,21 @@
         color: #bfbfbf;
         font-weight: 200;
         padding-bottom: 10px;
+    }
+
+
+    .signUp{
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        padding: 6px 14px;
+        border: 1px solid white;
+        border-radius: 8px;
+        text-decoration: none;
     }
   
   /* Add a green text color and a checkmark when the requirements are right */
