@@ -37,7 +37,10 @@
                 <i class="uil-envelope"></i>
             </div>
             <div class="password-container">
-                <input class="password" id="password" name="password" type="password" placeholder="Enter password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters" required>
+                <input class="password" id="password" name="password" type="password" placeholder="Enter password"
+                    id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                    title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters"
+                    required>
                 <i class="uil-lock-open-alt"></i>
             </div>
             <div id="message">
@@ -51,6 +54,37 @@
                 <button id="submit-btn" type="submit" class="submit-button" disabled>Login</button>
             </div>
         </form>
+    </div>
+
+    <!-- the modal -->
+    <div class="modal">
+        <div class="container-modal">
+            <form id="form" name="login-form" method="post">
+                <h1 class="login">Add your user:</h1>
+                <div class="email-container">
+                    <input class="email" name="email" type="email" placeholder="Enter email address" id="email"
+                        required>
+                    <i class="uil-envelope"></i>
+                </div>
+                <div class="password-container">
+                    <input class="password" id="password" name="password" type="password" placeholder="Enter password"
+                        id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters"
+                        required>
+                    <i class="uil-lock-open-alt"></i>
+                </div>
+                <div id="message" style="display:contents;">
+                    <h3>Password must contain at least:</h3>
+                    <p id="letter" class="invalid">A lowercase letter</p>
+                    <p id="capital" class="invalid">An uppercase letter</p>
+                    <p id="number" class="invalid">A number</p>
+                    <p id="length" class="invalid">A minimum of 6 characters</p>
+                </div>
+                <div class="login-button-container">
+                    <button id="submit-btn" type="submit" class="submit-button" disabled>Add your user</button>
+                </div>
+            </form>
+        </div>
     </div>
 
 </body>
