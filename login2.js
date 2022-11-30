@@ -1,5 +1,5 @@
 
-document.querySelector('#button').addEventListener('click', (e) => { window.location.href = 'https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjdwti9kMT7AhVeQfEDHVhLB_4QPAg';
+document.querySelector('#button').addEventListener('click', (e) => { window.location.href = 'index.html';
 });
 
 
