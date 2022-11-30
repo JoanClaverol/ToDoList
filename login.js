@@ -62,7 +62,11 @@ myInput.onkeyup = function() {
   }
 }
 
+<<<<<<< HEAD
 // //LOGIN Button
+=======
+//LOGIN Button
+>>>>>>> 260fb685ca7ead66c32fd1051ea7c0d296c77624
 // const inputEmail = document.getElementById('#email');
 // const inputPassword = document.getElementById('#password');
 // const button = document.getElementById('#submit-btn');
