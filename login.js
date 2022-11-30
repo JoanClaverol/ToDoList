@@ -3,6 +3,8 @@ const letter = document.getElementById("letter");
 const capital = document.getElementById("capital");
 const number = document.getElementById("number");
 const length = document.getElementById("length");
+const signUp = document.querySelector('.signUp');
+const modal = document.querySelector('.modal');
 
 // When the user clicks on the password field, show the message box
 myInput.onfocus = function () {
@@ -101,39 +103,53 @@ class Users {
 
 let users = [];
 
-logInButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  console.log('radi');
-  let emailValue = emailInput.value;
-  let passwordValue = passwordInput.value;
-  users.forEach(user => {
-    if (user.email === emailValue && user.password === passwordValue) {
-      document.location.assign("./index.html");
-    } else {
-      alert('Please insert correct password and/or email.');
-    }
-  })
-})
-signUpButton.addEventListener('click', signUpFunction)
-function signUpFunction() {
-  let email = prompt('Please type in your e-mail adress');
-  let password = prompt('Please set up your password');
+// logInButton.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   console.log('radi');
+//   let emailValue = emailInput.value;
+//   let passwordValue = passwordInput.value;
+//   users.forEach(user => {
+//     if (user.email === emailValue && user.password === passwordValue) {
+//       document.location.assign("./index.html");
+//     } else {
+//       alert('Please insert correct password and/or email.');
+//     }
+//   })
+// })
+// signUpButton.addEventListener('click', signUpFunction)
+// function signUpFunction() {
+//   let email = prompt('Please type in your e-mail adress');
+//   let password = prompt('Please set up your password');
 
-  alert(email);
-  // if(!email.contains('@.com')){
-  //   alert('Enter correct form for email');
-  //   return alert(email);
-  // }
-  alert(password);
-  // if (password.length < 5) {
-  //   alert('Password has to be longer than 4 caracters')
-  //   return alert(password);
-  // }
-  let newUser = {
-    email,
-    password
-  }
-  users.push(newUser);
-  // localStorage.setItem(JSON.stringify({email}), JSON.stringify({password}));
-  // localStorage.clear();
-}
+//   alert(email);
+//   // if(!email.contains('@.com')){
+//   //   alert('Enter correct form for email');
+//   //   return alert(email);
+//   // }
+//   alert(password);
+//   // if (password.length < 5) {
+//   //   alert('Password has to be longer than 4 caracters')
+//   //   return alert(password);
+//   // }
+//   let newUser = {
+//     email,
+//     password
+//   }
+//   users.push(newUser);
+//   // localStorage.setItem(JSON.stringify({email}), JSON.stringify({password}));
+//   // localStorage.clear();
+// }
+
+let modalEmail = '';
+let modalPassword = '';
+signUp.addEventListener('click', (e) => {
+  // change display modal to flex
+  modal.style.display = 'flex';
+  const addUser = modal.querySelector('.submit-button');
+  addUser.addEventListener('click', (e) => {
+    const modalEmail = modal.querySelector('.email').value;
+    const modalPassword = modal.querySelector('.password').value;
+    console.log(email, password);
+    modal.style.display = 'none';
+  })
+});
