@@ -80,7 +80,7 @@ myInput.onkeyup = function() {
 // }
 // button.addEventListener('click', function(event){
 //     //event.preventDefault();
-//     function (event) {
+//     function(event) {
 //         window.location.pathname="login.html";
 //      }
 // })
@@ -89,12 +89,12 @@ myInput.onkeyup = function() {
 // const logInButton = document.getElementById('submit-btn');
 // const signUpButton = document.querySelector('.signUp');
 
-// class Users {
-//   constructor(email, password){
-//     this.email = email,
-//     this.password = password
-//   }
-// }
+class Users {
+  constructor(email, password){
+    this.email = email,
+    this.password = password
+  }
+}
 
 
 
