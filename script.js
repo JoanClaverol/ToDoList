@@ -2,7 +2,7 @@ const taskLi = document.querySelectorAll(".task");
 const paragraphEdit = document.querySelectorAll(".paragraph-edit");
 const taskInput = document.querySelector('.input-task-input');
 
-// FUNCTIONS TO DELETE THE TASKS START
+// FUNCTIONS TO DELETE THE TASKS - START
 const removeTask = (el) => {
     el.target.parentNode.parentNode.parentNode.remove();
 };
@@ -14,9 +14,9 @@ function deletTaskEvent() {
         })
     })
 };
-// FUNCTIONS TO DELETE THE TASKS END
+// FUNCTIONS TO DELETE THE TASKS - END
 
-// FUNCTIONS TO EDIT THE TASKS START
+// FUNCTIONS TO EDIT THE TASKS - START
 const editTask = (edit) => {
     console.log("edit task click working");
     const parentElement = edit.target.parentNode.parentNode.parentNode;
@@ -65,9 +65,9 @@ function editTaskEvent() {
         })
     });
 };
-// FUNCTIONS TO EDIT THE TASKS END
+// FUNCTIONS TO EDIT THE TASKS - END
 
-// FUNCTIONS FOR CREATING THE TASK START
+// FUNCTIONS FOR CREATING THE TASK - START
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === "Enter") {
         if (taskInput.value) {
@@ -114,9 +114,9 @@ const updateTasks = () => {
     taskList.appendChild(task);
 
 };
-// FUNCTIONS FOR CREATING THE TASK END
+// FUNCTIONS FOR CREATING THE TASK - END
 
-// FUNCTION TO CHECK THE TASK AS DONE START
+// FUNCTION TO CHECK THE TASK AS DONE - START
 function movingCompletedTaskToCompletedUl(){
     const checkboxes = document.querySelectorAll('.checkbox');
     const pendingUl = document.querySelector('.pending')
@@ -134,9 +134,9 @@ function movingCompletedTaskToCompletedUl(){
     })
     
 }
-// FUNCTION TO CHECK THE TASK AS DONE END
+// FUNCTION TO CHECK THE TASK AS DONE - END
 
-//ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS START
+//ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS - START
 function selectingTheList() {
     const pendingList = document.querySelector('.pending');
     const pendingFilter = document.querySelector('#pending');
@@ -163,7 +163,7 @@ function selectingTheList() {
     });
 };
 
-// ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS END
+// ADDING FUNCTIONALITY TO PENDING/COMPLETED BUTTONS - END
 
 //SELECTED STYLE FOR ACTIVE TABS - start
 function activeTab() {
