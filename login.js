@@ -62,32 +62,32 @@ myInput.onkeyup = function() {
   }
 }
 
-//LOGIN Button
-const inputEmail = document.getElementById('#email');
-const inputPassword = document.getElementById('#password');
-const button = document.getElementById('#submit-btn');
-const regEx = /\S+@\S+\.\S+/; // string, white-space, @ , white-space, dot, white-space, value, string //
-const form = document.getElementById('#form');
+// //LOGIN Button
+// const inputEmail = document.getElementById('#email');
+// const inputPassword = document.getElementById('#password');
+// const button = document.getElementById('#submit-btn');
+// const regEx = /\S+@\S+\.\S+/; // string, white-space, @ , white-space, dot, white-space, value, string //
+// const form = document.getElementById('#form');
 
-function validateForm(){
-    if (regEx.test(inputEmail.value) !== "" && inputPassword.value !== ""){
-       button.style.backgroundColor = '4b8aa7';
-       button.disabled = false;
-    } else {
-       button.style.backgroundColor = '#c5dce7';
-       button.disabled = true;
-    }
-}
-button.addEventListener('click', function(event){
-    //event.preventDefault();
-    function(event) {
-        window.location.pathname="login.html";
-     }
-})
-const emailInput = document.querySelector(".email");
-const passwordInput = document.querySelector('.password');
-const logInButton = document.getElementById('submit-btn');
-const signUpButton = document.querySelector('.signUp');
+// function validateForm(){
+//     if (regEx.test(inputEmail.value) !== "" && inputPassword.value !== ""){
+//        button.style.backgroundColor = '4b8aa7';
+//        button.disabled = false;
+//     } else {
+//        button.style.backgroundColor = '#c5dce7';
+//        button.disabled = true;
+//     }
+// }
+// button.addEventListener('click', function(event){
+//     //event.preventDefault();
+//     function(event) {
+//         window.location.pathname="login.html";
+//      }
+// })
+// const emailInput = document.querySelector(".email");
+// const passwordInput = document.querySelector('.password');
+// const logInButton = document.getElementById('submit-btn');
+// const signUpButton = document.querySelector('.signUp');
 
 class Users {
   constructor(email, password){
