@@ -1,0 +1,62 @@
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    font-family: 'Poppins', sans-serif;
+    
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #dfeaea;  
+        border-radius: 15px ;  
+          
+}
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+h2{  
+    text-align: center;  
+    color: #0918e9;  
+    padding: 20px;  
+}  
+label{  
+    color: #0918e9;
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#button{
+    margin: 10px 0;
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: rgb(247, 247, 248);  
+    background-color: #0090e9;
+  
+  
+}  
+span{  
+    color: rgb(6, 6, 6);  
+    font-size: 17px;  
+}  

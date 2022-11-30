@@ -35,6 +35,7 @@ const editTask = (edit) => {
             </ul>
         </div>
     `;
+    localStorage.removeItem('task');
     parentElement.addEventListener('keypress', (edit) => {
         const newValue = parentElement.querySelector('#newInputValue').value;
         if (edit.key === 'Enter') {
@@ -105,6 +106,7 @@ const generateTask = (taskName) => {
         </div>
     `;
     task.className = 'task';
+    taskParagraph = task.querySelector('p');
     return task;
 };
 const updateTasks = () => {
