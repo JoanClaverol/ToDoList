@@ -7,7 +7,7 @@ const signUp = document.querySelector('.signUp');
 const modal = document.querySelector('.modal');
 const logInButton = document.querySelector('.log-in-button');
 
-
+// USERS OBJECTS ARRAY
 let users = [];
 
 // When the user clicks on the password field, show the message box
@@ -62,10 +62,10 @@ myInput.onkeyup = function () {
     length.classList.add("invalid");
   }
 }
-
 // PASSWORD VALIDATION MESSAGE - FINISH
-let modalEmail = '';
-let modalPassword = '';
+
+// SIGN UP BUTTON AND ADDING NEW USER START
+
 signUp.addEventListener('click', (e) => {
   modal.style.display = 'flex';
   const addUser = modal.querySelector('.submit-button');
@@ -82,24 +82,28 @@ signUp.addEventListener('click', (e) => {
     console.log(users)
   })
 });
+// SIGN UP BUTTON AND ADDING NEW USER - FINISH
 
-
+// LOG IN BUTTON START
 logInButton.addEventListener('click', function (e) {
   e.preventDefault();
-  const emailLoginInput = document.querySelector('.email-login');
-  const passwordLoginInput = document.querySelector('.password-login');
+  let emailLoginInput = document.querySelector('.email-login');
+  let passwordLoginInput = document.querySelector('.password-login');
   let emailValue = emailLoginInput.value;
   let passwordValue = passwordLoginInput.value;
   users.forEach(user => {
     if (user.email === emailValue && user.password === passwordValue) {
-      document.location.assign("./index.html");
+      document.location.assign("./todolist.html");
+      emailLoginInput.value = '';
     } else {
       alert('Please insert correct password and/or email.');
     }
   })
 })
+// LOG IN BUTTON - FINISH
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // LOGIN BUTTON - START - !!NOT WORKING!!
 
 // const inputEmail = document.getElementById('#email');
@@ -128,9 +132,7 @@ logInButton.addEventListener('click', function (e) {
 
 // })
 
-
 // LOGIN BUTTON - FINISH
-
 
 // class Users {
 //   constructor(email, password) {
@@ -138,10 +140,6 @@ logInButton.addEventListener('click', function (e) {
 //       this.password = password
 //   }
 // }
-
-
-
-
 
 // signUpButton.addEventListener('click', signUpFunction)
 // function signUpFunction() {

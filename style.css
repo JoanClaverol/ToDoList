@@ -88,7 +88,7 @@
    }
 
    body {
-       background-image: background-color: #0093E9;
+       background-image: #0093E9;
        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
        background-attachment: fixed;
        position: relative;
@@ -219,10 +219,9 @@
        border-bottom: 1px solid #ccc;
    }
 
-   .task-box .task:last-child {
-       margin-bottom: 0;
-       border-bottom: 0;
-       padding-bottom: 0;
+   .task-box.completed {
+    margin-top: -2px;
+    margin-bottom: 15px;
    }
 
    .task label {
@@ -293,7 +292,6 @@
 
    .footer-content {
        display: block;
-       vertical-align: top;
        color: white;
 
    }

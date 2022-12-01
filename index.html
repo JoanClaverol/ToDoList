@@ -11,7 +11,7 @@
     </style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <script src="script.js" async></script>
+    <script src="loginPage.js" async></script>
 </head>
 
 <body>
@@ -22,31 +22,65 @@
             <h1 class="header-title">Tick-it</h1>
             <h2 class="header-subitle">a to-do list</h2>
         </div>
+        <div class="sign-up">
+            <button class="signUp">
+                Sign up
+            </button>
+        </div>
     </header>
 
     <div class="wrapper">
-
-        <div class="task-input">
-            <div id=clock></div>
-            <i class="uil-align-left"></i>
-            <input class="input-task-input" id="input-task-input" type="text" placeholder="Add new task" value="">
-        </div>
-        <div class="controls">
-            <div class="filters">
-                <span id="all" class="active">All</span>
-                <span id="pending">Pending</span>
-                <span id="completed">Completed</span>
+        <form id="form" name="login-form" method="post">
+            <h1 class="login">Welcome!</h1>
+            <div class="email-container">
+                <input class="email email-login" name="email" type="email" placeholder="Enter email address" id="email" required>
+                <i class="uil-envelope"></i>
             </div>
-        </div>
-        <ul class="task-box pending">
-            
-        </ul>
-        <div class=""></div>
-        <ul class="task-box completed">
-            
-        </ul>
-        <button class="clear-btn clear-tasks">Clear all</button>
+            <div class="password-container">
+                <input class="password password-login" id="password" name="password" type="password" placeholder="Enter password"
+                    id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                    title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters"
+                    required>
+                <i class="uil-lock-open-alt"></i>
+            </div>
+            <div class="login-button-container">
+                <button id="submit-btn" type="submit" class="submit-button log-in-button">Login</button>
+            </div>
+        </form>
     </div>
+
+    <!-- the modal -->
+    <div class="modal">
+        <div class="wrapper">
+            <form id="form" name="login-form">
+                <h1 class="login">Welcome!</h1>
+                <a href="" id="closeModal">close</a>
+                <div class="email-container">
+                    <input class="email email-modal" name="email" type="email" placeholder="Enter email address" id="email-signup"
+                        required>
+                    <i class="uil-envelope"></i>
+                </div>
+                <div class="password-container">
+                    <input class="password password-modal" id="password-signup" name="password" type="password" placeholder="Enter password"
+                        id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters"
+                        required>
+                    <i class="uil-lock-open-alt"></i>
+                </div>
+                <div id="message">
+                    <h3>Password must contain at least:</h3>
+                    <p id="letter" class="invalid">A lowercase letter</p>
+                    <p id="capital" class="invalid">An uppercase letter</p>
+                    <p id="number" class="invalid">A number</p>
+                    <p id="length" class="invalid">A minimum of 6 characters</p>
+                </div>
+                <div class=".addUser login-button-container">
+                    <button id="submit-btn" type="submit" class="submit-button">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 
 <footer>
