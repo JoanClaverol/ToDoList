@@ -8,7 +8,7 @@ const modal = document.querySelector('.modal');
 const logInButton = document.querySelector('.log-in-button');
 
 // USERS OBJECTS ARRAY
-let users = [];
+const users = [];
 
 // When the user clicks on the password field, show the message box
 myInput.onfocus = function () {
@@ -65,23 +65,24 @@ myInput.onkeyup = function () {
 // PASSWORD VALIDATION MESSAGE - FINISH
 
 // SIGN UP BUTTON AND ADDING NEW USER START
-
-signUp.addEventListener('click', (e) => {
+const validationArray = [letter, capital, number, length]
+// 
+signUp.addEventListener('click', () => {
   modal.style.display = 'flex';
-  const addUser = modal.querySelector('.submit-button');
-  addUser.addEventListener('click', (e) => {
-    e.preventDefault();
-    let modalEmail = modal.querySelector('.email-modal').value;
-    let modalPassword = modal.querySelector('.password-modal').value;
-    modal.style.display = 'none';
-    let newUser = {
-      email: modalEmail,
-      password: modalPassword
-    }
-    users.push(newUser);
-    console.log(users)
-  })
 });
+const addUser = modal.querySelector('.submit-button');
+addUser.addEventListener('click', (e) => {
+  e.preventDefault();
+  let modalEmail = modal.querySelector('.email-modal').value;
+  let modalPassword = modal.querySelector('.password-modal').value;
+  modal.style.display = 'none';
+  let newUser = {
+    email: modalEmail,
+    password: modalPassword
+  }
+  users.push(newUser);
+  console.log(users)
+})
 // SIGN UP BUTTON AND ADDING NEW USER - FINISH
 
 // LOG IN BUTTON START

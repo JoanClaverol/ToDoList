@@ -307,7 +307,18 @@
    /* CSS for login.html */
 
 
-   #submit-btn {
+   #submit-btn-newuser {
+       outline: none;
+       border: none;
+       color: #fff;
+       cursor: pointer;
+       font-size: 15px;
+       border-radius: 4px;
+       padding: 10px 20px;
+       background: #5ab9f0;
+   }
+
+   #submit-btn-login {
        outline: none;
        border: none;
        color: #fff;
