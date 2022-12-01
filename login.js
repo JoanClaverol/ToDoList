@@ -1,4 +1,4 @@
-const myInput = document.getElementById("password");
+const myInput = document.getElementById("password-signup");
 const letter = document.getElementById("letter");
 const capital = document.getElementById("capital");
 const number = document.getElementById("number");
@@ -10,14 +10,16 @@ const modal = document.querySelector('.modal');
 myInput.onfocus = function () {
   document.getElementById("message").style.display = "block";
 }
-
+//NO LONGER NEEDED
 // When the user clicks outside of the password field, hide the message box
-myInput.onblur = function () {
-  document.getElementById("message").style.display = "none";
-}
+// myInput.onblur = function () {
+//   document.getElementById("message").style.display = "none";
+// }
 
+// PASSWORD VALIDATION MESSAGE - START
 // When the user starts to type something inside the password field
 myInput.onkeyup = function () {
+
   // Validate lowercase letters
   const lowerCaseLetters = /[a-z]/g;
   if (myInput.value.match(lowerCaseLetters)) {
@@ -64,32 +66,41 @@ myInput.onkeyup = function () {
   }
 }
 
-// //LOGIN Button
+// PASSWORD VALIDATION MESSAGE - FINISH
+
+
+
+// LOGIN BUTTON - START - !!NOT WORKING!!
+
 // const inputEmail = document.getElementById('#email');
 // const inputPassword = document.getElementById('#password');
-// const button = document.getElementById('#submit-btn');
+// const buttonLogin = document.getElementById('submit-btn');
 // const regEx = /\S+@\S+\.\S+/; // string, white-space, @ , white-space, dot, white-space, value, string //
 // const form = document.getElementById('#form');
 
-// // function validateForm(){
-// //     if (regEx.test(inputEmail.value) !== "" && inputPassword.value !== ""){
-// //        button.style.backgroundColor = '4b8aa7';
-// //        button.disabled = false;
-// //     } else {
-// //        button.style.backgroundColor = '#c5dce7';
-// //        button.disabled = true;
-// //     }
-// // }
-// // button.addEventListener('click', function(event){
-// //     //event.preventDefault();
-// //     function(event) {
-// //         window.location.pathname="login.html";
-// //      }
-// // })
-// // const emailInput = document.querySelector(".email");
-// // const passwordInput = document.querySelector('.password');
-// // const logInButton = document.getElementById('submit-btn');
-// // const signUpButton = document.querySelector('.signUp');
+// function validateForm(){
+//     if (regEx.test(inputEmail.value) !== "" && inputPassword.value !== ""){
+//        button.style.backgroundColor = '4b8aa7';
+//        button.disabled = false;
+//        console.log('email ok');
+//     } else {
+//        button.style.backgroundColor = '#c5dce7';
+//        button.disabled = true;
+//        console.log('NOT okay');
+//     }
+// }
+
+// buttonLogin.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     // function(e) {
+//     //     window.location.pathname="login.html";
+//     //  }
+
+// })
+
+
+// LOGIN BUTTON - FINISH
+
 
 class Users {
   constructor(email, password) {
@@ -97,7 +108,6 @@ class Users {
       this.password = password
   }
 }
-
 
 
 let users = [];
