@@ -219,10 +219,6 @@
        border-bottom: 1px solid #ccc;
    }
 
-   .task-box.completed {
-    margin-top: -2px;
-    margin-bottom: 15px;
-   }
 
    .task label {
        display: flex;

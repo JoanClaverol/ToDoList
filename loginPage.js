@@ -65,8 +65,7 @@ myInput.onkeyup = function () {
 // PASSWORD VALIDATION MESSAGE - FINISH
 
 // SIGN UP BUTTON AND ADDING NEW USER START
-const validationArray = [letter, capital, number, length]
-// 
+const validationArray = [letter, capital, number, length];
 signUp.addEventListener('click', () => {
   modal.style.display = 'flex';
 });
