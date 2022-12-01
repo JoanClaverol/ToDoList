@@ -33,18 +33,18 @@
         <form id="form" name="login-form" method="post">
             <h1 class="login">Welcome!</h1>
             <div class="email-container">
-                <input class="email" name="email" type="email" placeholder="Enter email address" id="email" required>
+                <input class="email email-login" name="email" type="email" placeholder="Enter email address" id="email" required>
                 <i class="uil-envelope"></i>
             </div>
             <div class="password-container">
-                <input class="password" id="password" name="password" type="password" placeholder="Enter password"
+                <input class="password password-login" id="password" name="password" type="password" placeholder="Enter password"
                     id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                     title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters"
                     required>
                 <i class="uil-lock-open-alt"></i>
             </div>
             <div class="login-button-container">
-                <button id="submit-btn" type="submit" class="submit-button">Login</button>
+                <button id="submit-btn" type="submit" class="submit-button log-in-button">Login</button>
             </div>
         </form>
     </div>
@@ -56,12 +56,12 @@
                 <h1 class="login">Welcome!</h1>
                 <a href="" id="closeModal">close</a>
                 <div class="email-container">
-                    <input class="email" name="email" type="email" placeholder="Enter email address" id="email-signup"
+                    <input class="email email-modal" name="email" type="email" placeholder="Enter email address" id="email-signup"
                         required>
                     <i class="uil-envelope"></i>
                 </div>
                 <div class="password-container">
-                    <input class="password" id="password-signup" name="password" type="password" placeholder="Enter password"
+                    <input class="password password-modal" id="password-signup" name="password" type="password" placeholder="Enter password"
                         id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                         title="Must contain at least one number, one uppercase and one lowercase letter, and at least 6 characters"
                         required>

@@ -5,19 +5,16 @@ const number = document.getElementById("number");
 const length = document.getElementById("length");
 const signUp = document.querySelector('.signUp');
 const modal = document.querySelector('.modal');
+const logInButton = document.querySelector('.log-in-button');
+
+
+let users = [];
 
 // When the user clicks on the password field, show the message box
 myInput.onfocus = function () {
   document.getElementById("message").style.display = "block";
 }
-//NO LONGER NEEDED
-// When the user clicks outside of the password field, hide the message box
-// myInput.onblur = function () {
-//   document.getElementById("message").style.display = "none";
-// }
 
-// PASSWORD VALIDATION MESSAGE - START
-// When the user starts to type something inside the password field
 myInput.onkeyup = function () {
 
   // Validate lowercase letters
@@ -67,7 +64,40 @@ myInput.onkeyup = function () {
 }
 
 // PASSWORD VALIDATION MESSAGE - FINISH
+let modalEmail = '';
+let modalPassword = '';
+signUp.addEventListener('click', (e) => {
+  modal.style.display = 'flex';
+  const addUser = modal.querySelector('.submit-button');
+  addUser.addEventListener('click', (e) => {
+    e.preventDefault();
+    let modalEmail = modal.querySelector('.email-modal').value;
+    let modalPassword = modal.querySelector('.password-modal').value;
+    modal.style.display = 'none';
+    let newUser = {
+      email: modalEmail,
+      password: modalPassword
+    }
+    users.push(newUser);
+    console.log(users)
+  })
+});
 
+
+logInButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  const emailLoginInput = document.querySelector('.email-login');
+  const passwordLoginInput = document.querySelector('.password-login');
+  let emailValue = emailLoginInput.value;
+  let passwordValue = passwordLoginInput.value;
+  users.forEach(user => {
+    if (user.email === emailValue && user.password === passwordValue) {
+      document.location.assign("./index.html");
+    } else {
+      alert('Please insert correct password and/or email.');
+    }
+  })
+})
 
 
 // LOGIN BUTTON - START - !!NOT WORKING!!
@@ -102,29 +132,17 @@ myInput.onkeyup = function () {
 // LOGIN BUTTON - FINISH
 
 
-class Users {
-  constructor(email, password) {
-    this.email = email,
-      this.password = password
-  }
-}
+// class Users {
+//   constructor(email, password) {
+//     this.email = email,
+//       this.password = password
+//   }
+// }
 
 
-let users = [];
 
-// logInButton.addEventListener('click', function (e) {
-//   e.preventDefault();
-//   console.log('radi');
-//   let emailValue = emailInput.value;
-//   let passwordValue = passwordInput.value;
-//   users.forEach(user => {
-//     if (user.email === emailValue && user.password === passwordValue) {
-//       document.location.assign("./index.html");
-//     } else {
-//       alert('Please insert correct password and/or email.');
-//     }
-//   })
-// })
+
+
 // signUpButton.addEventListener('click', signUpFunction)
 // function signUpFunction() {
 //   let email = prompt('Please type in your e-mail adress');
@@ -149,16 +167,12 @@ let users = [];
 //   // localStorage.clear();
 // }
 
-let modalEmail = '';
-let modalPassword = '';
-signUp.addEventListener('click', (e) => {
-  // change display modal to flex
-  modal.style.display = 'flex';
-  const addUser = modal.querySelector('.submit-button');
-  addUser.addEventListener('click', (e) => {
-    const modalEmail = modal.querySelector('.email').value;
-    const modalPassword = modal.querySelector('.password').value;
-    console.log(email, password);
-    modal.style.display = 'none';
-  })
-});
+
+//NO LONGER NEEDED
+// When the user clicks outside of the password field, hide the message box
+// myInput.onblur = function () {
+//   document.getElementById("message").style.display = "none";
+// }
+
+// PASSWORD VALIDATION MESSAGE - START
+// When the user starts to type something inside the password field
